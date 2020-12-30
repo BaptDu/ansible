@@ -1,0 +1,14 @@
+[webserver]
+ip_server
+
+[webserver:vars]
+ansible_user=username
+ansible_ssh_private_key_file=file_ssh_idrsa
+ansible_python_interpreter=/usr/bin/python3
+ansible_sudo_pass=password_server
+
+image_git_registry_api=image_api_docker
+image_git_registry_interface=image_interface_docker
+url_git_registry=url_registry
+username_git_registry=username
+password_git_registry=password_registry

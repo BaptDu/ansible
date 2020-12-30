@@ -1,0 +1,7 @@
+Create hosts and replace and copy all the information found in hosts.example in hosts
+
+If errors are displayed because the image already exists run the following command on the server
+
+```bash
+sudo docker container stop $(sudo docker container ls -aq) && sudo docker container rm $(sudo docker container ls -aq) && sudo docker volume prune && sudo docker image rm $(sudo docker images -aq)
+```
