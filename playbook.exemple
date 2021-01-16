@@ -1,0 +1,5 @@
+---
+- hosts: name_for_serveur
+  roles:
+    - dependencies
+    - role : docker

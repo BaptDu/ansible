@@ -1,10 +1,10 @@
 ---
-- name: Add Docker GPG apt Key
+- name: Add docker GPG
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
-- name: Add Docker Repository
+- name: Add doker repository
   apt_repository:
     repo: deb https://download.docker.com/linux/ubuntu xenial stable
     state: present
@@ -15,3 +15,21 @@
 - name: Install Docker Module for Python
   pip:
    name: docker
+
+- name: "Login docker with {{ username }}"
+  docker_login:
+    registry_url: "{{ registry }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+
+- name: "Create containers"
+  docker_container:
+    image: "{{ item.image }}:{{ item.version }}"
+    name: "{{ item.name }}"
+    published_ports:
+      - "{{ item.ports }}"
+  loop: "{{ containers }}"
+    
+- name: Logout docker
+  docker_login:
+    state: absent

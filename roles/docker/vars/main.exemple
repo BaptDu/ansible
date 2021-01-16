@@ -1,0 +1,11 @@
+registry:
+username: 
+password: 
+containers:
+  - { 
+    image: "",
+    version: "",
+    name: "" ,
+    ports: ""
+  }
+  # ...
